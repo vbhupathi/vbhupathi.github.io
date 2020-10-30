@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Venkata N Bhupathi</title>
+        <link rel="stylesheet" href="./assets/styles.css" />
+        <script src="https://unpkg.com/vue@next"></script>    
+    </head>
+    <body>
+        <nav class="header clearfix navbar" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> -->
+        
+                    <h3 class="navbar-title text-muted text-left"><a href="/"><strong>VBhupathi</strong></a></h3>
+                </div>
+        
+                <div id="navbar" class="navbar-container collapse navbar-collapse">
+                    <ul class="nav nav-pills pull-right">
+                        <li role="presentation" class="passive"><a href="blog.html" title="Blog"><strong>Blog</strong></a></li>
+                        <li role="presentation" class="passive"><a href="projects.html" title="Projects"><strong>Projects</strong></a></li>
+                         <!--<li role="presentation" class="passive"><a href="/cv" title="CV">CV</a></li>
+                        <li role="presentation" class="passive"><a href="/contact" title="Contact">Contact</a></li>-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="app">
+            <div class="nav-bar"></div>
+            <div class="person-display">
+                <div class="person-container">
+                    <div class="person-image">
+                        <img v-bind:src="image" height ="350" width="350">
+                    </div>
+                </div>
+            </div>
+            <h1>{{name}}</h1>
+            <p>{{aboutMe}}</p>
+        </div>
+
+        <script src="./main.js"></script>
+        <script>
+            const mountApp = app.mount('#app')
+        </script>
+    </body>
+</html>
