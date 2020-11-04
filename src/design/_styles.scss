@@ -1,6 +1,46 @@
+html > body {
+  margin: 0 !important;
+}
+
+.main-selection {
+  padding: 1rem 1rem;
+}
+
+.notification pre {
+  background-color: inherit;
+  color: white;
+  font-size: 16px;
+  line-height: normal;
+}
+
+div.color-line {
+  width: 160px;
+  height: 8px;
+  border: 1px #dbdbdb solid;
+  margin: 8px 0;
+}
+
+.menu-list .active-link,
+.menu-list .router-link-active {
+  color: #fff;
+  background-color: $link;
+}
+.not-found {
+
+}
+
+
+
+
+
+
+
+
+
+
 img{
     border-radius:inherit;
-    float: right;    
+    float: right;
 }
 p{
     width: 500px;
@@ -10,9 +50,9 @@ p{
     display: inherit;
     justify-content: center;
 }
-.navbar-title { 
-    margin: 8px 0px 0px 8px; 
-    line-height: 40px; 
+.navbar-title {
+    margin: 8px 0px 0px 8px;
+    line-height: 40px;
     padding-bottom: 15px;
  }
 .navbar-container li{
@@ -44,7 +84,7 @@ p, ul, ol, dl {
     margin: 0 0 1.75em 0;
     text-rendering: geometricPrecision;
   }
-  
+
   /* Generated list items from Markdown */
   ul li p,
   ol li p {
