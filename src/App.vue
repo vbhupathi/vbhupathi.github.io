@@ -1,21 +1,49 @@
 <template>
-    <div id="app">
-        <HeaderBar></HeaderBar>
-        <div class="main-section content-title-group">
-          <h2 class="title">VBhupathi</h2>
-        </div>
-    </div>
+  <div id="app">
+    <HeaderBar/>
+    <div class="main-section columns">
+      <NavMenu/>
+    <main class="column">
+    <router-view />
+    </main>
+  </div>
 </template>
 
 <script>
+import HeaderBar from '@/components/HeaderBar';
+import NavMenu from '@/components/NavMenu';
 
-    import HeaderBar from '@/components/HeaderBar';
-    export default {
-        name: 'App',
-        components: { HeaderBar },
-    };
+export default {
+  name: 'App',
+  components:{
+      HeaderBar,
+      NavMenu
+  }
+
+
+}
 </script>
 
- <style lang="scss">
- @import '@/design/index.scss';
- </style>
+
+<!--<style lang="scss">
+// #app {
+//   font-family: Avenir, Helvetica, Arial, sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   text-align: center;
+//   color: #2c3e50;
+// }
+
+// #nav {
+//   padding: 30px;
+
+//   a {
+//     font-weight: bold;
+//     color: #2c3e50;
+
+//     &.router-link-exact-active {
+//       color: #42b983;
+//     }
+//   }
+// }
+// </style>-->
