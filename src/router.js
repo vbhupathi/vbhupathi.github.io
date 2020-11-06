@@ -12,7 +12,7 @@ export default new Router({
         component: Home
         },
         {
-            path: '/about',
+            path: '/About',
             name: 'about',
             // route level code-splitting
             // this generates a separate chunk (about.[hash].js) for this route
@@ -20,12 +20,20 @@ export default new Router({
             component: () => { return import('./views/About.vue') }
         },
         {
-            path: '/blog',
+            path: '/Blog',
             name: 'blog',
             // route level code-splitting
             // this generates a separate chunk (about.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => { return import('./views/About.vue') }
+            component: () => { return import('./views/Blog.vue') }
         }
+        {
+          path: '/Projects',
+          name: 'blog',
+          // route level code-splitting
+          // this generates a separate chunk (about.[hash].js) for this route
+          // which is lazy-loaded when the route is visited.
+          component: () => { return import('./views/Projects.vue') }
+      }
     ]
 })
