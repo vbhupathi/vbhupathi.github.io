@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import HeaderBar from '@/components/HeaderBar';
-import NavMenu from '@/components/NavMenu';
+import HeaderBar from './components/HeaderBar';
+import NavMenu from './components/NavMenu';
 
 export default {
   name: 'App',
