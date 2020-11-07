@@ -1,1 +1,0 @@
-(()=>{"use strict";new Vue({data:{hello:"hi there!!"}}),app.$mount("#app")})();
