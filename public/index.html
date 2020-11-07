@@ -1,63 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Venkata N Bhupathi</title>
-        <link rel="stylesheet" href="./assets/styles.css" />
-        <script src="https://unpkg.com/vue@next"></script>    
-    </head>
-    <body>
-        <nav class="header clearfix navbar" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button> -->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" />
+    
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      crossorigin="anonymous"
+    /> -->
+    <title>Venkata Bhupathi</title>
+    
+    <link rel="stylesheet" href="./design/index.scss" />
+    <!-- <script src="https://unpkg.com/vue@next"></script>   -->
+  </head>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but vue-heroes doesn't work properly without JavaScript
+        enabled. Please enable it to continue.</strong
+      >
+    </noscript>
+    <div id="app">
         
-                    <h3 class="navbar-title text-muted text-left"><a href="/"><strong>VBhupathi</strong></a></h3>
-                </div>
-        
-                <div id="navbar" class="navbar-container collapse navbar-collapse">
-                    <ul class="nav nav-pills pull-right">
-                        <li role="presentation" class="passive"><a href="blog.html" title="Blog"><strong>Blog</strong></a></li>
-                        <li role="presentation" class="passive"><a href="projects.html" title="Projects"><strong>Projects</strong></a></li>
-                         <!--<li role="presentation" class="passive"><a href="/cv" title="CV">CV</a></li>
-                        <li role="presentation" class="passive"><a href="/contact" title="Contact">Contact</a></li>-->
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div id="app">
-            <div class="nav-bar"></div>
-            <div class="person-display">
-                <div class="person-container">
-                    <div class="person-image">                        
-                        <img v-bind:src="image" height ="350" width="350">
-                    </div>
-                </div>
-            </div>
-            <h1>{{name}}</h1>
-            <p>{{aboutMe}}</p>
-        </div>
-
-        <script src="../src/main.js"></script> 
-        <script> 
-        
-        
-            const app = Vue.createApp({
-                    data:function(){
-                        return {
-                            name: 'Venkata Bhupathi',
-                            aboutMe: 'I am passionately inquisitive about web & software design and development. I enjoy working in a group to transform business requirements into technical solutions, particularly when I get the chance to apply standards of software engineering and mathematical analysis to the design, development, testing, and evaluation of said software. Currently working, as a Software Developer at Indiana University, on innovative software projects for the High. Educ. industry. Graduated from Central Connecticut State University with a Masters Degree in Computer Information Technology.',
-                            image:'../src/assets/images/person.jpg',
-                        }
-                    }
-                    })
-            const mountApp = app.mount('#app')
-            
-        </script>
-    </body>
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>
