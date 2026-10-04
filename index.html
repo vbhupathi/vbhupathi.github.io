@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venkata Bhupathi</title>
+<meta name="description" content="Venkata Bhupathi, Lead Software Engineer at Indiana University. Cloud, DevOps, and identity engineering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single-column editorial page, 1040px measure, asymmetric hero (thesis left, live "mount" card right), ruled sections with a narrow label column. */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --fg: #111722;
+  --muted: #566074;
+  --rule: #d9dde5;
+  --accent: #0a6c74;
+  --accent-ink: #ffffff;
+  --accent-soft: #e0f0f1;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e131b; --surface: #151c27; --fg: #e8ecf2; --muted: #9aa5b8;
+    --rule: #263042; --accent: #5cc6c9; --accent-ink: #08161a; --accent-soft: #14303a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e131b; --surface: #151c27; --fg: #e8ecf2; --muted: #9aa5b8;
+  --rule: #263042; --accent: #5cc6c9; --accent-ink: #08161a; --accent-soft: #14303a;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 17px; line-height: 1.65;
+  padding-inline: 20px; padding-block: 0;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin-inline: auto; }
+.mono { font-family: var(--mono); }
+
+/* header */
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; position: sticky; top: env(safe-area-inset-top, 0px); background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); z-index: 5; }
+.brand { font-family: var(--display); font-size: 1.2rem; font-weight: 600; text-decoration: none; letter-spacing: -0.01em; }
+nav { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; justify-content: flex-end; font-size: 0.92rem; }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--fg); }
+.theme { background: none; border: 1px solid var(--rule); color: var(--fg); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: grid; place-items: center; font-size: 15px; }
+.theme:hover { border-color: var(--accent); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; align-items: center; padding-block: 64px 80px; }
+.eyebrow { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 20px; }
+h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.04; letter-spacing: -0.025em; margin: 0 0 24px; text-wrap: balance; }
+h1 em { font-style: italic; color: var(--accent); }
+.lede { font-size: 1.18rem; color: var(--muted); max-width: 34em; margin: 0 0 32px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 8px; font-weight: 500; font-size: 0.95rem; text-decoration: none; border: 1px solid var(--fg); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost:hover { background: var(--surface); }
+
+.mount { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.7; overflow: hidden; }
+.mount .bar { display: flex; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid var(--rule); color: var(--muted); font-size: 0.74rem; letter-spacing: 0.05em; text-transform: uppercase; }
+.mount .body { padding: 16px; display: grid; gap: 4px; overflow-x: auto; }
+.mount .row { display: flex; justify-content: space-between; gap: 16px; white-space: nowrap; }
+.mount .row b { font-weight: 500; color: var(--accent); }
+.mount .row span { color: var(--muted); }
+.mount .id { margin-top: 10px; padding-top: 12px; border-top: 1px dashed var(--rule); color: var(--muted); white-space: normal; }
+
+/* sections */
+section { border-top: 1px solid var(--rule); padding-block: 64px; display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 40px; }
+section > h2 { font-family: var(--mono); font-weight: 500; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 6px 0 0; }
+.col { min-width: 0; }
+h3 { font-family: var(--display); font-weight: 500; font-size: 1.9rem; line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 16px; text-wrap: balance; }
+.col p { margin: 0 0 16px; max-width: 40em; }
+.muted { color: var(--muted); }
+
+.flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px; margin: 28px 0 8px; font-size: 0.88rem; }
+.flow .node { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 16px; min-width: 0; }
+.flow .node small { display: block; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.flow .node.hot { border-color: var(--accent); background: var(--accent-soft); }
+.flow .arrow { align-self: center; color: var(--muted); font-family: var(--mono); }
+
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 24px; margin-top: 32px; padding-top: 24px; border-top: 1px dashed var(--rule); }
+.facts dt { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.facts dd { margin: 0; font-size: 0.98rem; }
+
+.list { list-style: none; padding: 0; margin: 0; display: grid; }
+.list li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 24px; padding-block: 20px; border-bottom: 1px solid var(--rule); }
+.list li:first-child { padding-top: 0; }
+.list a.title { font-family: var(--display); font-size: 1.35rem; font-weight: 500; line-height: 1.25; text-decoration: none; letter-spacing: -0.01em; }
+.list a.title:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+.list p { grid-column: 1; margin: 0; color: var(--muted); font-size: 0.97rem; }
+.tag { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--rule); border-radius: 999px; padding: 2px 10px; align-self: start; white-space: nowrap; }
+.tag.todo { color: var(--accent); border-color: var(--accent); }
+
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px 40px; }
+.skills h4 { font-family: var(--mono); font-weight: 500; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+.skills p { margin: 0; color: var(--fg); font-size: 0.98rem; }
+
+.creds { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.cred { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; }
+.cred .code { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); }
+.cred strong { display: block; font-weight: 600; margin-top: 2px; }
+.cred span { color: var(--muted); font-size: 0.9rem; }
+
+.contact-big { font-family: var(--display); font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 24px; max-width: 18em; text-wrap: balance; }
+.links { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.email { font-family: var(--mono); font-size: 0.9rem; border: 1px dashed var(--accent); border-radius: 8px; padding: 10px 14px; display: inline-flex; gap: 12px; align-items: center; }
+.email button { font: inherit; font-size: 0.78rem; background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 5px; padding: 3px 10px; cursor: pointer; }
+footer { border-top: 1px solid var(--rule); padding-block: 28px 48px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 0.88rem; }
+
+@media (max-width: 820px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 40px 56px; }
+  section { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-block: 48px; }
+  nav a.hide-sm { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top">Venkata Bhupathi</a>
+    <nav aria-label="Primary">
+      <a href="#kumo">Kumo</a>
+      <a href="#projects">Projects</a>
+      <a class="hide-sm" href="#writing">Writing</a>
+      <a class="hide-sm" href="#expertise">Expertise</a>
+      <a class="hide-sm" href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+      <button class="theme" id="theme" type="button" aria-label="Toggle light and dark theme">◐</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Lead Software Engineer · Indiana University</p>
+        <h1>I build the plumbing that makes campus identity and <em>cloud storage</em> feel like one system.</h1>
+        <p class="lede">Ten-plus years in .NET, Azure, and DevOps. I lead Kumo, the platform that gives managed university lab machines network drives backed by Box, Google Drive, Dropbox, OneDrive, OneDrive for Business, and FileShare, and I led Go.IU, IU's link shortener.</p>
+        <div class="cta">
+          <a class="btn primary" href="#kumo">Read the Kumo story</a>
+          <a class="btn ghost" href="resume.pdf">Resume (PDF)</a>
+        </div>
+      </div>
+      <aside class="mount" aria-label="Illustration of Kumo drive mounts">
+        <div class="bar"><span>This PC · network drives</span><span>via Kumo</span></div>
+        <div class="body">
+          <div class="row"><span>C:</span><span>Local Disk</span></div>
+          <div class="row"><b>G:</b><span>Box</span></div>
+          <div class="row"><b>H:</b><span>Google Drive</span></div>
+          <div class="row"><b>J:</b><span>Dropbox</span></div>
+          <div class="row"><b>K:</b><span>OneDrive</span></div>
+          <div class="row"><b>M:</b><span>OneDrive for Business</span></div>
+          <div class="row"><b>S:</b><span>FileShare</span></div>
+          <div class="id" style="margin-top:6px">Example. Each person picks a drive letter, or Kumo assigns the next free one.</div>
+          <div class="id">Identity: ADFS · SAML · WS-Federation<br>Runtime: .NET · Azure</div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="kumo">
+      <h2>Featured work</h2>
+      <div class="col">
+        <h3>Kumo: cloud storage as a local drive, tied to campus identity</h3>
+        <p>Kumo mounts a student's or researcher's cloud storage as network drives on managed lab machines, next to the C: drive, signed in with their university account. They pick a drive letter or let Kumo choose a free one. Nothing to install on a personal device and nothing to configure at the keyboard.</p>
+        <p>The platform was first architected in 2013 and 2014, and I took it over in 2018. I have been its technical lead since, covering architecture, security, delivery, and support for a service used by 18 universities and about 400,000 students.</p>
+        <div class="flow" aria-label="How Kumo connects identity to storage">
+          <div class="node"><small>Identity</small>Campus account</div><span class="arrow">→</span>
+          <div class="node hot"><small>Platform</small>Kumo service + driver</div><span class="arrow">→</span>
+          <div class="node"><small>Providers</small>Box · Drive · Dropbox · OneDrive · FileShare</div><span class="arrow">→</span>
+          <div class="node"><small>Result</small>Network drives beside C:</div>
+        </div>
+        <dl class="facts">
+          <div><dt>Now</dt><dd>Moving .NET Framework code to .NET Core and Blazor, and rewriting the Kumo Portal on a modern stack.</dd></div>
+          <div><dt>Recent decisions</dt><dd>HMAC authentication migration, CBFS driver migration, ADFS versus Microsoft Entra.</dd></div>
+          <div><dt>Delivery</dt><dd>Azure DevOps pipelines and Docker.</dd></div>
+          <div><dt>Operations</dt><dd>12+ servers, the ADFS environment, and SSL certificate management.</dd></div>
+          <div><dt>Partners</dt><dd>Billing and MSA renewals for the external universities that use Kumo, and the technical onboarding and support that goes with them.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="col">
+        <h3>Go.IU: a link shortener built for a university</h3>
+        <p>I led Go.IU from start to finish. Faculty, staff, and students sign in with their IU account to shorten long URLs, and anyone can follow the short links without logging in. It runs in Docker containers on Kubernetes, deployed with Helm, with SQL Server behind it.</p>
+        <p><a class="btn primary" href="https://go.iu.edu" target="_blank" rel="noopener">Visit go.iu.edu</a></p>
+        <ul class="list" style="margin-top:32px">
+          <li>
+            <span class="title" style="font-family:var(--display);font-size:1.35rem">Unified Copy Machine &amp; Print</span><span class="tag">Contributor · 2022 to now</span>
+            <p>Inventory and invoicing for IU copy machines and print services. Runs in Docker on Kubernetes, deployed with Helm.</p>
+          </li>
+          <li>
+            <span class="title" style="font-family:var(--display);font-size:1.35rem">RivetBlazor</span><span class="tag">Contributor · 2021 to now</span>
+            <p>Blazor UI components for Rivet, the design system Indiana University builds and uses.</p>
+          </li>
+          <li>
+            <span class="title" style="font-family:var(--display);font-size:1.35rem">IT People</span><span class="tag">Contributor · 2021 to now</span>
+            <p>A directory of the people who do or support IT work across Indiana University.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="col">
+        <ul class="list">
+          <li>
+            <span class="title" style="font-family:var(--display);font-size:1.35rem">Full-Stack Software Engineer, Indiana University</span><span class="tag">2020 to now</span>
+            <p>Lead the modernization of Kumo across 18 universities and handle its billing and MSA renewals with external partners. Work across C#, .NET, ASP.NET Core, Azure, Docker, Kubernetes, Helm, Azure DevOps, and enterprise identity.</p>
+          </li>
+          <li>
+            <span class="title" style="font-family:var(--display);font-size:1.35rem">Web &amp; Software Developer, Indiana University</span><span class="tag">2018 to 2020</span>
+            <p>Built and supported web applications and enterprise software in C#, .NET, SQL, and JavaScript.</p>
+          </li>
+          <li>
+            <span class="title" style="font-family:var(--display);font-size:1.35rem">Earlier .NET roles</span><span class="tag">2017 to 2018</span>
+            <p>Software Developer at Control Station, Application Developer at Eniac Systems, and Software Engineer at GP Technologies.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="writing">
+      <h2>Writing</h2>
+      <div class="col">
+        <h3>Kumo Engineering, a technical series</h3>
+        <p class="muted">Notes from running a long-lived identity and storage platform. The first posts are in review and will appear on <a href="https://dev.to/vbhupathi" target="_blank" rel="noopener" style="color:var(--accent)">Dev.to</a> and <a href="https://medium.com/venkatabhupathi" target="_blank" rel="noopener" style="color:var(--accent)">Medium</a>.</p>
+        <ul class="list">
+          <li>
+            <a class="title" href="https://dev.to/vbhupathi" target="_blank" rel="noopener">Migrating Kumo authentication to HMAC</a>
+            <span class="tag">Coming soon</span>
+            <p>Why the old scheme had to go, how requests are signed now, and how clients moved without downtime.</p>
+          </li>
+          <li>
+            <a class="title" href="https://dev.to/vbhupathi" target="_blank" rel="noopener">Replacing the CBFS driver layer</a>
+            <span class="tag">Coming soon</span>
+            <p>The migration path for the file system driver that makes a cloud account look like a local disk.</p>
+          </li>
+          <li>
+            <a class="title" href="https://dev.to/vbhupathi" target="_blank" rel="noopener">ADFS or Entra: how we chose</a>
+            <span class="tag">Coming soon</span>
+            <p>The trade-offs behind the identity provider decision for a campus-wide service.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research and talks</h2>
+      <div class="col">
+        <h3>Next: papers, talks, and open-source work</h3>
+        <p>I am working toward peer-reviewed papers, conference talks, and open-source or whitepaper releases in two areas: security and identity, and cloud and infrastructure. This page will list them as they publish.</p>
+        <ul class="list">
+          <li><span class="title" style="font-family:var(--display);font-size:1.35rem">Security and identity</span><span class="tag">In progress</span><p>Federated sign-in, token and request signing, and identity provider migration in higher education.</p></li>
+          <li><span class="title" style="font-family:var(--display);font-size:1.35rem">Cloud and infrastructure</span><span class="tag">In progress</span><p>Infrastructure as code, containerized delivery, and modernizing long-lived .NET services.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <h2>Expertise</h2>
+      <div class="col">
+        <div class="skills">
+          <div><h4>Application</h4><p>C#, .NET Framework and .NET Core, Blazor, PowerShell</p></div>
+          <div><h4>Cloud and delivery</h4><p>Azure, Azure DevOps, Docker, Kubernetes, Helm, CI/CD. Terraform on personal projects.</p></div>
+          <div><h4>Identity and security</h4><p>ADFS, SAML, WS-Federation, Microsoft Entra, HMAC request signing</p></div>
+          <div><h4>Operations</h4><p>Manage 12+ servers and our ADFS environment, including SSL/TLS certificate management and renewals</p></div>
+          <div><h4>Leadership</h4><p>Technical lead for a production platform, translating business requirements into designs and shipping them. Run the partner side too: billing and MSA renewals with external universities</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="credentials">
+      <h2>Credentials</h2>
+      <div class="col">
+        <div class="creds">
+          <div class="cred"><span class="code">AZ-204</span><strong>Azure Developer Associate</strong><span>Microsoft · first earned Mar 2024, valid through Mar 2027</span></div>
+          <div class="cred"><span class="code">AZ-400</span><strong>DevOps Engineer Expert</strong><span>Microsoft · first earned Mar 2024, valid through Mar 2027</span></div>
+          <div class="cred"><span class="code">GenAI 101</span><strong>GenAI 101 Certified</strong><span>Indiana University · Sep 2025 · prompting, verifying AI output, problem solving, communication</span></div>
+          <div class="cred"><span class="code">CSM®</span><strong>Certified ScrumMaster®</strong><span>Scrum Alliance</span></div>
+          <div class="cred"><span class="code">M.S.</span><strong>Computer Information Technology</strong><span>Central Connecticut State University</span></div>
+        </div>
+        <p class="muted" style="margin-top:28px;max-width:44em"><strong style="color:var(--fg);font-weight:600">Also completed:</strong> LinkedIn Learning courses in Python (Learning and Advanced), React.js and React Hooks, Rust for C# Developers, DevOps Foundations, Ansible, Puppet, and Microsoft Power Apps.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="col">
+        <p class="contact-big">Working on identity, cloud storage, or modernizing a long-lived platform? Let's talk.</p>
+        <div class="links">
+          <a class="btn primary" href="https://www.linkedin.com/in/vbhupathi/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://github.com/vbhupathi" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn ghost" href="https://dev.to/vbhupathi" target="_blank" rel="noopener">Dev.to</a>
+          <a class="btn ghost" href="https://medium.com/venkatabhupathi" target="_blank" rel="noopener">Medium</a>
+          <span class="email"><span id="emailText">vbhupathi@outlook.com</span><button type="button" id="copy">Copy</button></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="yr">2026</span> Venkata Bhupathi</span>
+    <span>Views are my own, not Indiana University's.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem("theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  document.getElementById("theme").addEventListener("click", function () {
+    var dark = root.getAttribute("data-theme") === "dark" ||
+      (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+  var btn = document.getElementById("copy"), txt = document.getElementById("emailText");
+  btn.addEventListener("click", function () {
+    var done = function () { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy"; }, 1500); };
+    try { navigator.clipboard.writeText(txt.textContent).then(done, function () {
+      var r = document.createRange(); r.selectNodeContents(txt); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }); }
+    catch (e) { var r = document.createRange(); r.selectNodeContents(txt); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  });
+  document.getElementById("yr").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
